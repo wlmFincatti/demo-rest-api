@@ -1,0 +1,7 @@
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" version="2.0">
+    <named-query name="Company.countEmployees">
+        <query>
+            select count(c) from Company
+        </query>
+    </named-query>
+</entity-mappings>

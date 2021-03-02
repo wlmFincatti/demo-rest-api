@@ -1,0 +1,13 @@
+server:
+  port: 8084
+kafka:
+  consumer:
+    employee:
+      topic: employee-avro
+      groupId: employees
+      bootstrapServer: localhost:29092
+      schemaRegistry: http://localhost:8081
+      applicationName: ${spring.application.name}
+spring:
+  application:
+    name: consumer-employee

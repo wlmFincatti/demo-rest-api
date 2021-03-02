@@ -1,0 +1,15 @@
+{
+  "namespace": "br.com.wlmfincatti.demojpawithkafka",
+  "type": "record",
+  "name": "EmployeeMessage",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "document",
+      "type": "string"
+    }
+  ]
+}
