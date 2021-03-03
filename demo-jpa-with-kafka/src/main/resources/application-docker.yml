@@ -3,7 +3,7 @@ server:
 kafka:
   producer:
     employee:
-      bootstrapServer: broker:9092
+      bootstrapServer: broker:29092
       schemaRegistry: http://schema-registry:8081
 spring:
   datasource:
