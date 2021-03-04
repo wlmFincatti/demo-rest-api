@@ -1,4 +1,4 @@
-package br.com.wlmfincatti.demojpawithkafka.controller.exception;
+package br.com.wlmfincatti.demojpawithkafka.controller.exceptionhandler;
 
 import br.com.wlmfincatti.demojpawithkafka.controller.dto.ErrorResponse;
 import br.com.wlmfincatti.demojpawithkafka.controller.dto.InvalidFieldsResponse;
@@ -14,13 +14,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDate;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
-public class ControllerCustomException {
+public class ControllerCustomHandler {
 
     @ExceptionHandler({CompanyNotFounException.class, EmployeeNotFounException.class})
     public ResponseEntity<ErrorResponse> responseNotFound(RuntimeException ex, WebRequest request) {

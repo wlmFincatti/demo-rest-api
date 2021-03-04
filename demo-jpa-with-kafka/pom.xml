@@ -22,6 +22,10 @@
         <kafka.client.version>2.6.0</kafka.client.version>
         <kafka.avro.version>1.8.1</kafka.avro.version>
         <kafka.avro.serializer.version>5.5.1</kafka.avro.serializer.version>
+        <gmavenplus-plugin.version>1.5</gmavenplus-plugin.version>
+        <spock-core.version>1.0-groovy-2.4</spock-core.version>
+        <groovy-all.version>2.4.7</groovy-all.version>
+        <cglib-nodep.version>3.1</cglib-nodep.version>
     </properties>
 
     <repositories>
@@ -133,6 +137,24 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--dependencies to spock test-->
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <version>${spock-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>${groovy-all.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib-nodep</artifactId>
+            <version>${cglib-nodep.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -149,6 +171,21 @@
                     </excludes>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>${gmavenplus-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <!-- create class to serializer kafka producer avro-->
 <!--            <plugin>-->
 <!--                <groupId>org.apache.avro</groupId>-->

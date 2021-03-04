@@ -22,18 +22,18 @@ public class EmployeeProducer {
         ProducerRecord<String, EmployeeMessage> record = new ProducerRecord<>(config.getTopic(), message.getDocument().toString(), message);
 
         try (KafkaProducer<String, EmployeeMessage> producer = new KafkaProducer<>(config.getProperties())) {
-            producer.send(record, (recordMetadata, e) -> {
-                Optional.ofNullable(e)
-                        .ifPresentOrElse(exception -> {
-                            log.info("Erro to send message [{}] ", record.value());
-                            log.error("Error: {}", e);
-                        }, () -> {
-                            log.info("Message [{}] send with sucess partition: {} offset: {}",
-                                    record.value(),
-                                    recordMetadata.partition(),
-                                    recordMetadata.offset());
-                        });
-            });
+            producer.send(record, (recordMetadata, e) ->
+                    Optional.ofNullable(e)
+                            .ifPresentOrElse(exception -> {
+                                        log.info("Erro to send message [{}] ", record.value());
+                                        log.error("Error: {}", e);
+                                    }, () ->
+                                            log.info("Message [{}] send with sucess partition: {} offset: {}",
+                                                    record.value(),
+                                                    recordMetadata.partition(),
+                                                    recordMetadata.offset())
+                            )
+            );
         }
     }
 }
