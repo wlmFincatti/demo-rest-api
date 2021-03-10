@@ -22,7 +22,7 @@ spring:
     show-sql: true
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://172.27.0.4:3306/db?createIfNotExists=true
+    url: jdbc:mysql://localhost:3306/db?createIfNotExists=true
     username: sa
     password: sa
   redis:
